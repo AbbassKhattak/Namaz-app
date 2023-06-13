@@ -2,10 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles=StyleSheet.create({
 container:{
-    // backgroundColor:'#EBEBEB',
-    // height:100,
-    // width:'100%',
     paddingHorizontal:25,
+    marginBottom:10
 },
 card:{
     height:141,
@@ -19,8 +17,8 @@ drawer1:{
     alignItems:"center"
 },
 switch:{
-    width:32,
-    height:20
+    width:33,
+    height:21
 },
 drawer2:{
     flexDirection:"row",

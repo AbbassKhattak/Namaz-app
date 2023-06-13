@@ -1,19 +1,24 @@
-import { View, Text,TouchableOpacity,Image } from 'react-native'
-import React from 'react'
+import { View, Text,TouchableOpacity,Image,} from 'react-native'
+import React,{useState} from 'react'
 import styles from './style'
 
-const SilentModeCard = () => {
+const SilentModeCard = ({item}) => {
+    const [img,setImg]= useState(true)
+
+    const clickHandler=()=>{
+        setImg(!img)
+    }
     return (
         <View style={styles.container}>
             <View style={styles.card}>
                 <View style={styles.drawer1}>
                     <View>
-                        <Text style={[styles.blackText,styles.boldText,styles.text14]}>Fajr</Text>
+                        <Text style={[styles.blackText,styles.boldText,styles.text14]}>{item.name}</Text>
                     </View>
                     <View >
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={clickHandler}>
                             <Image 
-                            source={require('../../images/switchOn.png')}
+                            source={img?require('../../images/switchOn.png'):require('../../images/switchOff.png')}
                             style={styles.switch}
                             />
                         </TouchableOpacity>
@@ -29,10 +34,10 @@ const SilentModeCard = () => {
                 </View>
                 <View style={styles.drawer3}>
                     <View style={styles.box}>
-                        <Text style={[styles.greyText,styles.text14,styles.boldText]}>04:28</Text>
+                        <Text style={[styles.greyText,styles.text14,styles.boldText]}>{item.startTime}</Text>
                     </View >
                     <View style={[styles.endTime2,styles.box]}>
-                    <Text style={[styles.greyText,styles.text14,styles.boldText]}>04:45</Text>
+                    <Text style={[styles.greyText,styles.text14,styles.boldText]}>{item.endTime}</Text>
                     </View>
                 </View>
                 
